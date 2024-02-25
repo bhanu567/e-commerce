@@ -1,0 +1,15 @@
+#imgContainer {
+  height: 80%;
+  width: 75%;
+  overflow: hidden;
+}
+#image {
+  transition: ease-in 0.5s;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+#image:hover {
+  transform: scale(1.6);
+  filter: brightness(130%);
+}
