@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Image, Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import TableContent from "./TableContent";
 import pausePlayButton from "../../Images/pause-play.png";
 
@@ -46,15 +46,15 @@ const Home = () => {
           </div>
         </Row>
         <Row className="justify-content-center">
-            <div className="justify-content-center"
-              style={{ height: "100px", width: "100px", border:"2px solid cyan", borderRadius:"50%", margin:"20px auto", display: "grid", alignItems:"center"}}
+            <div className="justify-content-center my-3"
+              style={{width: "100px", border:"1px solid #0dcaf0", borderRadius:"50%", margin:"20px auto", display: "grid", alignItems:"center"}}
             ><img src={pausePlayButton}></img></div>
         </Row>
       </div>
       <h2 style={{ textAlign: "center"}} className="m-5">TOURS</h2>
       <div style={{marginBottom:"50px"}}>
-        {TourData.map((data) => (
-          <TableContent tableData={data}></TableContent>
+        {TourData.map((data, index) => (
+          <TableContent tableData={data} key={index}></TableContent>
         ))}
         </div>
     </>

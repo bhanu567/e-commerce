@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import MyCardComponent from "./MyCardComponent";
 import tShirt from "../../Images/Shirt.png";
 import coffee from "../../Images/Coffee.jpg";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Container } from "react-bootstrap";
 
 const musicArr = [
   {
@@ -46,6 +47,7 @@ const merchArr = [
 ];
 
 function Store() {
+  console.log(window.location.pathname);
   return (
     <>
       <MyCardComponent products={musicArr} title={"MUSIC"}></MyCardComponent>

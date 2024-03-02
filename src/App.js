@@ -5,39 +5,51 @@ import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  // createRoutesFromElements,
+  // Route,
+} from "react-router-dom";
 
-const App = () => {
-  const [showCartIcons, setShowCartIcons] = useState(false);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MyNavbar />,
+    children: [
+      {
+        path: "/",
+        element: <Store />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      { path: "/cart", element: <Cart /> },
+    ],
+  },
+]);
 
-  const closeCartHandler=()=>{
-    setShowCartIcons(false);
-  }
-  const openCartHandler=()=>{
-    setShowCartIcons(true);
-  }
+//AN ALTERNATIVE WAY TO CREATE A ROUTE
+// const routeDefinition = createRoutesFromElements(
+//   <Route>
+//     <Route path="\" elements={<Store />}></Route>
+//     <Route path="\about" elements={<About />}></Route>
+//     <Route path="\home" elements={<Home />}></Route>
+//     <Route path="\cart" elements={<Cart />}></Route>
+//   </Route>
+// );
 
+// const router = createBrowserRouter(routeDefinition);
+
+const App = () => { 
   return (
     <>
-      <MyNavbar openCart={openCartHandler}></MyNavbar>
-      {!showCartIcons && (
-        <h1
-          className="text-center"
-          style={{
-            fontSize: "100px",
-            backgroundColor: "#777",
-            color: "white",
-            paddingBottom: "60px",
-            margin: "0",
-          }}
-        >
-          The Generics
-        </h1>
-      )}
-      {showCartIcons && <Cart closeCart={closeCartHandler}></Cart>}
-      {/* <Home></Home> */}
-      {/* <Store></Store> */}
-      {/* <About></About> */}
-      <Footer></Footer>
+      <RouterProvider router={router} />
     </>
   );
 };

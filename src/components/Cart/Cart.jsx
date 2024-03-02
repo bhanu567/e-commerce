@@ -1,12 +1,12 @@
 import React from "react";
 import CartContent from "./CartContent";
 
-const Cart = (props) => {
+const Cart = () => {
   return (
     <div
       style={{
         width: "45vw",
-        height: "70vh",
+        height: "90vh",
         overflow:"hidden"
       }}
     >
@@ -14,7 +14,7 @@ const Cart = (props) => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-1 ms-auto">
-            <button type="button" className="form-control border-dark" onClick={props.closeCart}>X</button>
+            <button type="button" className="form-control border-dark">X</button>
             </div>
           </div>
           <div

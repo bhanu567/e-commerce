@@ -1,35 +1,97 @@
 import React from "react";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
-const MyNavbar = (props) => {
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { NavLink, Outlet } from "react-router-dom";
+import Footer from "./Footer";
+
+const MyNavbar = () => {
   return (
     <>
       <Navbar
-        bg="dark"
+        bg="dark" 
         data-bs-theme="dark"
-        className="p-0 sticky-top border-bottom border-light border-2"
+        className="p-2 sticky-top border-bottom border-light border-2"
       >
         <Container>
           <Nav className="me-auto offset-5 ">
-            <Nav.Link href="#home" className="me-5 text-light">
+            <NavLink
+              to="/home"
+              className="me-5 text-light"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? "underline" : "none",
+              })}
+              end
+            >
               HOME
-            </Nav.Link>
-            <Nav.Link href="#store" className="me-5 text-light">
+            </NavLink>
+            <NavLink
+              to="/"
+              className="me-5 text-light"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? "underline" : "none",
+              })}
+              end
+            >
               STORE
-            </Nav.Link>
-            <Nav.Link href="#about" className="text-light">
+            </NavLink>
+            <NavLink
+              to="/about"
+              className="text-light"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? "underline" : "none",
+              })}
+              end
+            >
               ABOUT
-            </Nav.Link>
+            </NavLink>
+            {(window.location.pathname.length===1) && (
+              <div
+                style={{
+                  top: "9px",
+                  right: "9px",
+                  position: "fixed",
+                  width: "90px",
+                }}
+              >
+                <button
+                  style={{
+                    padding: "1px 12px",
+                    borderRadius: "6px",
+                    color: "white",
+                    border: "1px solid cyan",
+                    backgroundColor: "transparent",
+                    position: "sticky",
+                  }}
+                >
+                  <NavLink
+                    to="cart"
+                    style={({ isActive }) => ({
+                      textDecoration: isActive ? "underline" : "none",
+                      color: "white",
+                    })}
+                  >
+                    cart
+                  </NavLink>
+                </button>
+                <sup className="me-4 fs-5 text-info">0</sup>
+              </div>
+            )}
           </Nav>
         </Container>
-        <Button
-          variant="outline-info"
-          className="text-light border-2 py-0 mt-2"
-          onClick={props.openCart}
-        >
-          cart
-        </Button>
-        <sup className="me-4 fs-5 text-info">0</sup>
       </Navbar>
+      <h1
+        className="text-center"
+        style={{
+          fontSize: "100px",
+          backgroundColor: "#777",
+          color: "white",
+          paddingBottom: "60px",
+          margin: "0",
+        }}
+      >
+        The Generics
+      </h1>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   );
 };

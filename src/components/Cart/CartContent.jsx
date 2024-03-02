@@ -26,9 +26,9 @@ const cartElements = [
 const CartContent = () => {
   return (
     <>
-      {cartElements.map((cartElement) => (
+      {cartElements.map((cartElement, index) => (
         <>
-          <div className="row justify-content-center m-2">
+          <div className="row justify-content-center m-2" key={index}>
             <div className="col-md-4 text-center">
               <div className="row">
                 <div className="col p-1"><img className="img-thumbnail border-0 p-0" src={cartElement.imageUrl} alt="" /></div>
@@ -37,7 +37,7 @@ const CartContent = () => {
             </div>
             <div className="col-md-2 text-center " style={{margin:"auto 0px"}}>{cartElement.price}</div>
             <div className="col-md-4 text-center ">
-              <div className="row">
+              <div className="row my-auto">
                 <div className="col-md-3 border border-info text-center" style={{margin:"auto 0px"}}>
                   {cartElement.quantity}
                 </div>
@@ -49,7 +49,7 @@ const CartContent = () => {
               </div>
             </div>
           </div>
-          <div className="row justify-content-center">
+          <div className="row justify-content-center" key={index+1}>
             <div className="col-md-4 border border-bottom border-dark "></div>
             <div className="col-md-2 border border-bottom border-dark "></div>
             <div className="col-md-4 border border-bottom border-dark "></div>
