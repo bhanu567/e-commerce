@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Store from "./components/Store/Store";
 import MyNavbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
+import ContactPage from "./components/ContactPage/ContactPage";
+
 import {
   RouterProvider,
   createBrowserRouter,
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       { path: "/cart", element: <Cart /> },
+      { path: "/contact", element: <ContactPage /> },
     ],
   },
 ]);

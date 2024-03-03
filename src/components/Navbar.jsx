@@ -12,7 +12,7 @@ const MyNavbar = () => {
         className="p-2 sticky-top border-bottom border-light border-2"
       >
         <Container>
-          <Nav className="me-auto offset-5 ">
+          <Nav className="me-auto offset-4 ">
             <NavLink
               to="/home"
               className="me-5 text-light"
@@ -35,13 +35,23 @@ const MyNavbar = () => {
             </NavLink>
             <NavLink
               to="/about"
-              className="text-light"
+              className="me-5 text-light"
               style={({ isActive }) => ({
                 textDecoration: isActive ? "underline" : "none",
               })}
               end
             >
               ABOUT
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className="text-light"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? "underline" : "none",
+              })}
+              end
+            >
+              Contact Us
             </NavLink>
             {(window.location.pathname.length===1) && (
               <div
