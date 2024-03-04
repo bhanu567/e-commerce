@@ -1,50 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import MyCardComponent from "./MyCardComponent";
-import tShirt from "../../Images/Shirt.png";
-import coffee from "../../Images/Coffee.jpg";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card} from "react-bootstrap";
+import musicArr from "../Array/MusicArray";
+import merchArr from "../Array/MerchArr";
 
-const musicArr = [
-  {
-    title: "Colors",
-    mainTitle: "Album 1",
-    price: 12.99,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-  {
-    title: "Black and white Colors",
-    mainTitle: "Album 2",
-    price: 14.99,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-  {
-    title: "Yellow and Black Colors",
-    mainTitle: "Album 3",
-    price: 9.99,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-  {
-    title: "Blue Color",
-    mainTitle: "Album 4",
-    price: 19.99,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-];
-const merchArr = [
-  {
-    title: "Colors",
-    mainTitle: "T-Shirt",
-    price: 19.99,
-    imageUrl: tShirt,
-  },
-  {
-    title: "Blue Color",
-    mainTitle: "Coffee Cup",
-    price: 6.99,
-    imageUrl: coffee,
-  },
-];
 
 function Store() {
   console.log(window.location.pathname);

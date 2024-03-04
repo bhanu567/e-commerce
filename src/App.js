@@ -12,6 +12,7 @@ import {
   // createRoutesFromElements,
   // Route,
 } from "react-router-dom";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       },
       { path: "/cart", element: <Cart /> },
       { path: "/contact", element: <ContactPage /> },
+      { path: ":productId", element: <ProductDetails /> },
     ],
   },
 ]);
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
 
 // const router = createBrowserRouter(routeDefinition);
 
-const App = () => { 
+const App = () => {
   return (
     <>
       <RouterProvider router={router} />

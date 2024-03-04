@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Card, Button, Container } from "react-bootstrap";
 import "./MyCardComponent.css";
+import { Link } from "react-router-dom";
 
 const MyCardComponent = (props) => {
   return (
@@ -20,7 +21,13 @@ const MyCardComponent = (props) => {
                   {product.mainTitle}
                 </Card.Title>
                 <Container id="imgContainer" className="mx-auto my-4">
-                  <Card.Img id="image" variant="top" src={product.imageUrl} />
+                  <Link to={product.id}>
+                    <Card.Img
+                      id="image"
+                      variant="top"
+                      src={product.imageUrl[0]}
+                    />
+                  </Link>
                 </Container>
                 <span className="ms-4">${product.price}</span>
                 <Button
