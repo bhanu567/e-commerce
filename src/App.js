@@ -5,14 +5,14 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import ContactPage from "./components/ContactPage/ContactPage";
-
+import ProductDetails from "./components/ProductDetails/ProductDetails";
+import LogInPage from "./components/LogIn/LogIn";
 import {
   RouterProvider,
   createBrowserRouter,
   // createRoutesFromElements,
   // Route,
 } from "react-router-dom";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +34,7 @@ const router = createBrowserRouter([
       { path: "/cart", element: <Cart /> },
       { path: "/contact", element: <ContactPage /> },
       { path: ":productId", element: <ProductDetails /> },
+      { path: "/login", element: <LogInPage /> },
     ],
   },
 ]);

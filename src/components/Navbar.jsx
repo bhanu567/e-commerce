@@ -1,13 +1,14 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 
 const MyNavbar = () => {
+  let location = useLocation();
   return (
     <>
       <Navbar
-        bg="dark" 
+        bg="dark"
         data-bs-theme="dark"
         className="p-2 sticky-top border-bottom border-light border-2"
       >
@@ -44,6 +45,16 @@ const MyNavbar = () => {
               ABOUT
             </NavLink>
             <NavLink
+              to="/login"
+              className="me-5 text-light"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? "underline" : "none",
+              })}
+              end
+            >
+              LogIn
+            </NavLink>
+            <NavLink
               to="/contact"
               className="text-light"
               style={({ isActive }) => ({
@@ -53,7 +64,8 @@ const MyNavbar = () => {
             >
               Contact Us
             </NavLink>
-            {(window.location.pathname.length===1) && (
+
+            {location.pathname === "/" && (
               <div
                 style={{
                   top: "9px",
