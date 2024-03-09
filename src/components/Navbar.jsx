@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
+import AuthContext from "../context/auth-context";
 
 const MyNavbar = () => {
+  const authCtx = useContext(AuthContext);
   let location = useLocation();
   return (
     <>
@@ -24,16 +26,18 @@ const MyNavbar = () => {
             >
               HOME
             </NavLink>
-            <NavLink
-              to="/"
-              className="me-5 text-light"
-              style={({ isActive }) => ({
-                textDecoration: isActive ? "underline" : "none",
-              })}
-              end
-            >
-              STORE
-            </NavLink>
+            {authCtx.isLoggedIn && (
+              <NavLink
+                to="/"
+                className="me-5 text-light"
+                style={({ isActive }) => ({
+                  textDecoration: isActive ? "underline" : "none",
+                })}
+                end
+              >
+                STORE
+              </NavLink>
+            )}
             <NavLink
               to="/about"
               className="me-5 text-light"

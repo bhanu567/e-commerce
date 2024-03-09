@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/auth-context";
 import "./LogIn.css";
-export const myKey = "";
+export const myKey = "AIzaSyC_Ra7-J3OpcY0c_zbkaJYLWuo1-5421zE";
 
 const LogInPage = () => {
-  const [token, setToken] = useState(null);
+  const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
   const eMailRef = useRef();
   const passwordRef = useRef();
@@ -27,10 +28,8 @@ const LogInPage = () => {
         }
       );
       const responseData = await response.json();
-      console.log(responseData);
       if (responseData.error) throw responseData.error;
-      localStorage.setItem("token", responseData.idToken);
-      setToken(responseData.idToken);
+      authCtx.login(responseData.idToken);
       alert(
         "You have Logged In Successfully with Email Id : " + responseData.email
       );
